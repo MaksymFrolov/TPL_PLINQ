@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using System.Text;
 
 namespace TPL.V._10
 {
@@ -41,11 +42,11 @@ namespace TPL.V._10
                 foreach (FileInfo fi in file)
                     using (StreamReader stream = new (fi.FullName))
                     {
-                        string s = "";
+                        StringBuilder strbuild=new StringBuilder();
                         string[] textMass;
                         while (stream.EndOfStream != true)
-                            s += stream.ReadLine();
-                        textMass = s.Split(' ');
+                            strbuild.Append(stream.ReadLine());
+                        textMass = strbuild.ToString().Split(' ');
                         lenght += textMass.Length;
                     };
                 return lenght;
@@ -77,11 +78,11 @@ namespace TPL.V._10
                 {
                     using (StreamReader stream = new StreamReader(fi.FullName))
                     {
-                        string s = "";
+                        StringBuilder strbuild = new StringBuilder();
                         string[] textMass;
                         while (stream.EndOfStream != true)
-                            s += stream.ReadLine();
-                        textMass = s.Split(' ');
+                            strbuild.Append(stream.ReadLine());
+                        textMass = strbuild.ToString().Split(' ');
                         lenght += textMass.Length;
                     };
                 });
